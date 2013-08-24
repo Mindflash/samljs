@@ -1,0 +1,9 @@
+<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="<%=uniqueId %>" Version="<%=version %>" IssueInstant="<%=issueInstant%>" ProtocolBinding="<%=protocolBinding %>" AssertionConsumerServiceURL="<%=assertionConsumerServiceUrl %>" Destination="<%=spInitiatedRedirectUrl %>">
+	<saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"><%=issuer %></saml:Issuer>
+	<samlp:NameIDPolicy xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" Format="<%=nameIdFormat %>" AllowCreate="<%=nameIdAllowCreate %>"></samlp:NameIDPolicy>
+	<% if (requestedAuthenticationContext) { %>
+	<samlp:RequestedAuthnContext xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" Comparison="<%=requestedAuthenticationContext.comparison %>">
+		<saml:AuthnContextClassRef xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"><%=requestedAuthenticationContext.authenticationContextClassRef %></saml:AuthnContextClassRef>
+	</samlp:RequestedAuthnContext>
+	<% } %>
+</samlp:AuthnRequest>
