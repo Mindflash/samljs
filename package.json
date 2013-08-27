@@ -7,6 +7,9 @@
 			"url": "https://github.com/Mindflash/samljs/raw/master/LICENSE"
 		}
 	],
+	"scripts": {
+		"test": "tap tests/*.js"
+	},
 	"keywords": [
 		"saml",
 		"adfs",
@@ -34,7 +37,9 @@
 	},
 	"devDependencies": {
 		"ejs": "0.8.x",
-		"jshint": "*"
+		"jshint": "*",
+		"tap": "~0.4.3",
+		"mockery": "~1.4.0"
 	},
 	"engines": {
 		"node": ">= 0.9.0"
