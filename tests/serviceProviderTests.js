@@ -10,8 +10,8 @@ var sp_assertionConsumerServiceUrl = "http://bugs.mftdev.com/saml/acs";
 var sp_issuer = "mindflash.com";
 var idp_spInitiatedRedirectUrl = "https://mindflash--QA.cs16.my.salesforce.com/idp/endpoint/HttpRedirect";
 var idp_issuer = "https://mindflash--QA.cs16.my.salesforce.com";
-var idp_publicCert = "AAAAB3NzaC1yc2EAAAABJQAAAQEAmDiQKM03EEjmFTACnH0SM83j533JxbL0ut8OtKf97VympC6Ws6NeBZx6Ku3Xc7I7dZc3So9aVQ2LwXFSNA+itvmAa28rS4yqSy57NinaaRkG16NPKqghJLoAOpVeeklFu+tMv7nKPLF8AnMpteLd8e4bnk+UNJpSTtg0nIBOH/p7viB0V4mZ6ztI3KBXFTWlAsZE3VfPzS62EcOVl8iipc9ZgCviq6q+MS6daJTayTaZyW1lUAuWA113OIXSVh9qTCo8pZ15taZEWD6DhTgy8jKUPPJG7nWcXUguBygu0KvEaIzbPswYxmQ8ALScpTxo8y6xE8JmVr1MOQNscROtBQ==";
-var sp_privateCer = "AAABABSSBaSmHDKiEUEiKd3LtloHEPXE4+pInZy2W+7mROi5fk2JwVaLssJ87eogJAi3OHespptfeujmJ6SE727RrjRm59cqstLbqE9ZTuukynzntNEIOyFwqohsKYtgSwmbMu/hhul5+LwX/ABUwHKGcQUEgEXTZw4HBDQrDgdPm9rOm1pAFp8yY1i/4iTrCPYllsOEqlVobAD4AXNwuzZvEL8nfQhJP1A6hCHG270fUySr3s0RjHTSHgKMYbSAJvknohze2ZlJnRPVmDyLqNrUmewonl/d5PWZdxQmtIaPIVx2S7dZiW4AIxP56z+kzdynfxJrAKsik7XH/WgYsxPWVW0AAACBAP7KQzsQGASv1je3wgMpcMcJZazOhNIbb5k62iyPSDR1UsQIvQpJlEM3Ja8nyW2uEVGkACKJNkthTXvG6i2JaKcadNZUiJzWWdgV616QfeicLgywDgVneDzox1nAn/kYZQ8cru5uYAQWsnhPGyzRveb4/z06oOW6cE2/Y85afI+VAAAAgQCY8ZyR4JZPqqXuE6yrNK61hb4R/TSrRC14gKcy3BdYqfH4Oh2ddsvcZnyUL7BsPvo90YUAMyjS9ZrCBrQd/15GwneCfFqFsuyfTxZ2oWHXTz5Z+q1wBydUrC81/GULpagemK3AomsRG97Dp298cqcI2ErVTSGh9LhE3bWkHWULsQAAAIEAlRSABHeyxBw7v/lNVv2OdrOZZztCLByPJwwqXQvYmOrc6pzgNgHs2t7jI8VUsZrOzeVE51HqZqLs7g3uojFQx+b0u5HDZuM/yF5aAqaSabO2F1LNrk9A9sSVVAteikStl5udM77pAMtDMJkTIk0gGo9oIh98qXJVGfSau7Yekzc=";
+var idp_publicCert = "MIIChTCCAe4CCQDmaVJdugc35DANBgkqhkiG9w0BAQUFADCBhjELMAkGA1UEBhMCTFYxDzANBgNVBAgMBkxBVFZJQTENMAsGA1UEBwwEUklHQTEPMA0GA1UECgwGRGlhdG9tMQswCQYDVQQLDAJJVDEZMBcGA1UEAwwQYWxleHAubWZ0ZGV2LmNvbTEeMBwGCSqGSIb3DQEJARYPYWxleHBAZGlhdG9tLmx2MB4XDTEzMDgyODEzMjI1OVoXDTE0MDgyODEzMjI1OVowgYYxCzAJBgNVBAYTAkxWMQ8wDQYDVQQIDAZMQVRWSUExDTALBgNVBAcMBFJJR0ExDzANBgNVBAoMBkRpYXRvbTELMAkGA1UECwwCSVQxGTAXBgNVBAMMEGFsZXhwLm1mdGRldi5jb20xHjAcBgkqhkiG9w0BCQEWD2FsZXhwQGRpYXRvbS5sdjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA6IFFhtZRLA8nmNgoeJbIOvmw3RZxh6djjOoIWeWx/cZ8HSwC4Aoja7FG/V53EGQglg2MNArqyHeaMopeycxzSsnzhO5RsWJbVeIFXrp8y8LPMFlLSZKKqTfSyQlcdbDPWXk8Vm8qW4fXR3hqDW87Sc387rynvONAQCJYW81sg7UCAwEAATANBgkqhkiG9w0BAQUFAAOBgQA0j/H3brqxdvTzpzgmSr2AAk4Ws/P9zeZwROJMLTx3MBOzuR1mnx4C5529ljFbmgcLMWUh1HXgFMWKe0N5+PSbLN79q/MlPbmbeS448QPVvcJMwQ0M7cBwdoti5oGeTXPiLUXNbhsFaZWojCGtlc3T0ogYjviKDwGOjrmtZGuHTw==";
+var sp_privateCert = "MIICXQIBAAKBgQDogUWG1lEsDyeY2Ch4lsg6+bDdFnGHp2OM6ghZ5bH9xnwdLALgCiNrsUb9XncQZCCWDYw0CurId5oyil7JzHNKyfOE7lGxYltV4gVeunzLws8wWUtJkoqpN9LJCVx1sM9ZeTxWbypbh9dHeGoNbztJzfzuvKe840BAIlhbzWyDtQIDAQABAoGAYYwbB39TfxC8pDvMfwuD5npr4dZQu4FXGv/1kQH1s2tbF0In0qduRPiTuCmx+oaHxWzZrdwGtSS45Qt4yWGl3KYqDE6EHgONVYA/VfxD10U7RfKblHf88RF44vMUPK1mYWLirlBTs50F5xR3KVNkt7C+GzFA7aoAUXKTzprDYeECQQD5U63RosAwle4eMsDWMabC6OH/dWiAkXkgHZ4RyPC7q5BD7gJ9s9udmBJvJ4pAX2Q6appAb70smJWBtdWLUIMPAkEA7rpVWz7gcE5e7IUrmbfundsHiWqOlWx6hDZH+pArfNIDqoFWhaqZ+j8rQbwXFWdgMzXb+g6+vI7U1SvccvO8+wJAfHTCzWRaX2ZYCIb5L3J1ddHeDjDDS3pSZi+imeoeEPAhAWeroqfHNrGUchvgrSVw2KAiA4xDeCFqb+ceg35bDQJBAOwvb9lpmNWjw+hPTLa1sh99HrTGtrCA9amupoHwdwX0JepgMgDmq5ZZPuu3MkNb1mJ0C+IXCoA0876/uUgFe1cCQQC4SXGxT5wVDARqm/V0NrAK1p9WBAEsIdr83BZ6hVLmtUiieLymWWCmxAJnbY0d/J6Y45+25b2ci/9ihVPE33tX";
 
 
 var settings = {
@@ -62,7 +62,7 @@ test('Generate auth request redirect URL without private cert', function (t) {
 
 test('Generate auth request redirect URL with private cert', function (t) {
 	var sett = _.defaults({ sp: {
-		privateCert: sp_privateCer
+		privateCert: sp_privateCert
 	}}, settings);
 	var samlServiceProvider = require("../lib/serviceProvider.js")(sett);
 	samlServiceProvider.generateAuthRequestRedirectURL(function (err, url) {
@@ -107,11 +107,13 @@ test('Process Auth Response Post', function (t) {
 
 		t.end();
 
+		/*
 		// TODO: Finish tests. Needed saml2 response xml, public and private keys.
-		/*samlServiceProvider.processAuthResponsePost(data.toString('base64'), function(err, data){
+		samlServiceProvider.processAuthResponsePost(data.toString('base64'), function(err, data){
 		 t.notOk(err, "No errors should have been thrown, received: " + err);
 		 t.end();
-		 });*/
+		 });
+		 */
 	});
 });
 
