@@ -137,6 +137,16 @@ test('verifyResponse error test', function (t) {
 	t.end();
 });
 
+test('verifyResponse with null xml', function (t) {
+	var util = require("../lib/util.js");
+
+	var result = util.verifyResponse(null, publicCert);
+	t.notOk(result, 'Should return false with null xml');
+	result = util.verifyResponse('', publicCert);
+	t.notOk(result, 'Should return false with empty string xml');
+	t.end();
+});
+
 test('generateAuthRequestParams tests', function (t) {
 
 	var util = require("../lib/util.js");
