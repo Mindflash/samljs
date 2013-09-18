@@ -36,7 +36,7 @@ test('Suite setup', function (t) {
 		util.signRequest = function (request, cert) {
 			return "Signed";
 		};
-		util.verifyResponse = function (xml, cert) {
+		util.verifyResponse = function (doc, xml, cert) {
 			return true;
 		}
 		mockery.registerMock('./util.js', util);
