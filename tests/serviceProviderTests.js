@@ -38,7 +38,7 @@ test('Suite setup', function (t) {
 		};
 		util.verifyResponse = function (doc, xml, cert) {
 			return true;
-		}
+		};
 		mockery.registerMock('./util.js', util);
 		mockery.warnOnUnregistered(false);
 		t.end();
@@ -61,6 +61,23 @@ test('Generate auth request redirect URL without private cert', function (t) {
 	});
 });
 
+test('Generate auth request redirect URL, without private cert, with querystring', function (t) {
+	var newSettings = _.clone(settings);
+	newSettings.idp.spInitiatedRedirectUrl = settings.idp.spInitiatedRedirectUrl + "?test=test1"; 
+	var samlServiceProvider = require("../lib/serviceProvider.js")(newSettings);
+	samlServiceProvider.generateAuthRequestRedirectURL(function (err, url) {
+		t.notOk(err, "No errors should have been thrown, received: " + err);
+		t.ok(url, "Should return url");
+		var resultUrl = urlUtil.parse(url);
+		t.equal((resultUrl.protocol + "//" + resultUrl.host + resultUrl.pathname).toLowerCase(), idp_spInitiatedRedirectUrl.toLowerCase(), "Should starts with provided url");
+		var queryStringArgs = querystring.parse(resultUrl.query);
+		t.ok(queryStringArgs.SAMLRequest, "Should contains SAMLRequest in query parameters");
+		t.notOk(queryStringArgs.SigAlg, "Should not have SigAlg in query parameters");
+		t.notOk(queryStringArgs.Signature, "Should not have Signature in query parameters");
+		t.equal(queryStringArgs.test, "test1", "original query should be preserved");
+		t.end();
+	});
+});
 
 test('Generate auth request redirect URL with private cert', function (t) {
 	var sett = _.defaults({ sp: {
