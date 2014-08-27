@@ -5,30 +5,6 @@
 	</samlp:Status>
 	<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="<%=assertionId%>" IssueInstant="<%=timestamp%>" Version="2.0">
 		<saml:Issuer><%=issuer%></saml:Issuer>
-		<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-			<ds:SignedInfo>
-				<ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-				<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
-				<ds:Reference URI="#s2af6627280d72f061beb9f8b1635bd54cc2892317">
-					<ds:Transforms>
-						<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
-						<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-					</ds:Transforms>
-					<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
-					<ds:DigestValue><%=digestValue%></ds:DigestValue>
-				</ds:Reference>
-			</ds:SignedInfo>
-			<ds:SignatureValue>
-				<%=signature%>
-			</ds:SignatureValue>
-			<ds:KeyInfo>
-				<ds:X509Data>
-					<ds:X509Certificate>
-						<%=cert%>
-					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</ds:Signature>
 		<saml:Subject>
 			<saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress" NameQualifier="<%=nameQualifier%>"><%=email%></saml:NameID>
 			<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">

@@ -30,7 +30,7 @@
 	],
 	"main": "./index.js",
 	"dependencies": {
-		"xml-crypto": "0.0.x",
+		"xml-crypto": "0.1.25",
 		"xmldom": "0.1.x",
 		"xpath": "*",
 		"lodash": "*"
