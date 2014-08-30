@@ -10,6 +10,15 @@
 			<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
 				<saml:SubjectConfirmationData InResponseTo="<%=spAssertionId%>" NotOnOrAfter="<%=notOnOrAfter%>" Recipient="<%=acsUrl%>"/></saml:SubjectConfirmation>
 		</saml:Subject>
+		<% if (attributes) { %>
+		<saml:AttributeStatement>
+			<% for(var i = 0; i < attributes.length; i++) { %>
+			<saml:Attribute Name="<%= attributes[i].name%>">
+				<saml:AttributeValue><%= attributes[i].value %></saml:AttributeValue>
+			</saml:Attribute>
+			<% } %>
+		</saml:AttributeStatement>
+		<% } %>
 		<% if (conditions) { %>
 		<saml:Conditions NotBefore="<%=conditions.notBefore%>" NotOnOrAfter="<%=conditions.notOnOrAfter%>">
 			<saml:AudienceRestriction>
