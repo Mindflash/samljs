@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" Destination="http://sso.mftdev.com/saml/acs" ID="_47ac555db63618ceb9332325fcde73ec1377699257771" InResponseTo="_88cc8a264b31ae783128" IssueInstant="2013-08-28T14:14:17.771Z" Version="2.0">
+	<saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:entity">https://mindflash--QA.cs16.my.salesforce.com</saml:Issuer>
+	<samlp:Status>
+		<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+	</samlp:Status>
+	<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_ed31b796f6f19d2881f29518f30bfb5b1377699257771" IssueInstant="2013-08-28T14:14:17.771Z" Version="2.0">
+		<saml:Issuer Format="urn:oasis:names:tc:SAML:2.0:nameid-format:entity">https://mindflash--QA.cs16.my.salesforce.com</saml:Issuer>
+		<saml:Subject>
+			<saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">cadmin@mindflash.com.qa</saml:NameID>
+			<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+				<saml:SubjectConfirmationData InResponseTo="_88cc8a264b31ae783128" NotOnOrAfter="2013-08-28T14:19:17.771Z" Recipient="http://sso.mftdev.com/saml/acs"/>
+			</saml:SubjectConfirmation>
+		</saml:Subject>
+		<saml:Conditions NotBefore="2013-08-28T14:14:17.771Z" NotOnOrAfter="2013-08-28T14:19:17.771Z">
+			<saml:AudienceRestriction>
+				<saml:Audience>mindflash.com</saml:Audience>
+			</saml:AudienceRestriction>
+		</saml:Conditions>
+		<saml:AuthnStatement AuthnInstant="2013-08-28T14:14:17.771Z">
+			<saml:AuthnContext>
+				<saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified</saml:AuthnContextClassRef>
+			</saml:AuthnContext>
+		</saml:AuthnStatement>
+		<saml:AttributeStatement>
+			<saml:Attribute Name="userId" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">00530000003acNB</saml:AttributeValue>
+			</saml:Attribute>
+			<saml:Attribute Name="username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">cadmin@mindflash.com.qa</saml:AttributeValue>
+			</saml:Attribute>
+			<saml:Attribute Name="email" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">jason+sf@mindflash.com</saml:AttributeValue>
+			</saml:Attribute>
+			<saml:Attribute Name="is_portal_user" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">false</saml:AttributeValue>
+			</saml:Attribute>
+		</saml:AttributeStatement>
+	</saml:Assertion>
+</samlp:Response>

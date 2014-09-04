@@ -28,7 +28,7 @@ test('Suite setup', function (t) {
 	});
 	t.end();
 });
-/*
+
 test('Generate Unique Id tests', function (t) {
 	var util = require("../lib/util.js");
 	var ids = [];
@@ -186,7 +186,7 @@ test('test response with varied namespacing and no attribute statement', functio
 		t.end();
 	});
 });
-*/
+
 test('verifyResponse success test for SAMLResponse', function (t) {
 	var util = require("../lib/util.js");
 
@@ -197,6 +197,23 @@ test('verifyResponse success test for SAMLResponse', function (t) {
 
 	var result = util.verifyResponse(doc, xml, authPublicCert);
 	t.ok(result, 'Should validate response without errors with success');
+	t.end();
+});
+
+test('ensure signed xml can be verified', function (t) {
+	var util = require("../lib/util.js");
+
+	var response = fs.readFileSync(__dirname + '/saml2TestResponseNoSign.xml').toString();
+	var privateKey = fs.readFileSync(__dirname + '/private.key').toString();
+	var cert = fs.readFileSync(__dirname + '/public.cert').toString();
+	
+	var signedXml = util.signAuthenticationResponse(response, privateKey, cert);
+	
+	t.ok(signedXml, "xml should be signed");
+	
+	var doc = new dom().parseFromString(signedXml);
+	var result = util.verifyResponse(doc, signedXml, util.PEMToCert(cert));
+	t.ok(result, 'Signed xml should be verified');
 	t.end();
 });
 
