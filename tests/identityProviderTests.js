@@ -13,12 +13,13 @@ var xpath = require('xpath');
 test('SAMLRequest is parsed correctly', function (t) {
 	var request = fs.readFileSync(__dirname + "/saml2TestRequest.xml");
 	
-	var request = util.deflateAndEncode(request, function(err, deflated) {
+	util.deflateAndEncode(request, function(err, deflated) {
 		t.notOk(err, "deflating should not error");
 		var idp = new identityProvider();
 		
 		idp.decodeAndParseAuthenticationRequest({
 			SAMLRequest: deflated,
+			binding: "redirect",
 			RelayState: "This is a relay"
 		}, function (err, req) {
 			t.notOk(err, "parsing request should not generate error");
@@ -31,7 +32,9 @@ test('SAMLRequest is parsed correctly', function (t) {
 				nameIDPolicies: [
 				{ allowCreate: 'true',
 					format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' } ],
-				relayState: "This is a relay" }, "Issuer should match");
+				relayState: "This is a relay",
+				requestPostBinding: request.toString("base64")
+			}, "Issuer should match");
 			t.end();
 		});
 	});
@@ -40,12 +43,13 @@ test('SAMLRequest is parsed correctly', function (t) {
 test('SAMLRequest with multiple name id policies is parsed correctly', function(t) {
 	var request = fs.readFileSync(__dirname + "/saml2TestRequestTwoNames.xml");
 	
-	var request = util.deflateAndEncode(request, function(err, deflated) {
+	util.deflateAndEncode(request, function(err, deflated) {
 		t.notOk(err, "deflating should not error");
 		var idp = new identityProvider();
 
 		idp.decodeAndParseAuthenticationRequest({
 			SAMLRequest: deflated,
+			binding: "redirect",
 			RelayState: "This is a relay"
 		}, function (err, req) {
 			t.notOk(err, "parsing request should not generate error");
@@ -60,7 +64,9 @@ test('SAMLRequest with multiple name id policies is parsed correctly', function(
 					format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' },
 				{ allowCreate: 'false',
 						format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:transient' }],
-				relayState: "This is a relay" }, "Issuer should match");
+				relayState: "This is a relay",
+				requestPostBinding: request.toString("base64")
+			}, "Issuer should match");
 			t.end();
 		});
 	});	
