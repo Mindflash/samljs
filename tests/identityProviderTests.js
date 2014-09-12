@@ -84,6 +84,11 @@ test('generates valid authentication response', function(t) {
 			privateKey: fs.readFileSync(__dirname + "/private.key").toString(),
 			cert: fs.readFileSync(__dirname + "/public.cert").toString()
 		},
+		conditions: {
+			notOnOrAfter: new Date().toISOString(),
+			notBefore: new Date().toISOString(),
+			audience: "testAudience"
+		},
 		subject: {
 			email: "testEmail",
 			sessIdEncrypted: "testSess",
