@@ -1,4 +1,4 @@
-<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="<%=responseId%>" InResponseTo="<%=spAssertionId%>" Version="2.0" IssueInstant="<%=timestamp%>" Destination="<%=acsUrl%>">
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="<%=responseId%>" <% if(!excludeInResponseTo) { %>InResponseTo="<%=spAssertionId%>"<%}%> Version="2.0" IssueInstant="<%=timestamp%>" Destination="<%=acsUrl%>">
 	<saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"><%=issuer%></saml:Issuer>
 	<samlp:Status xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 		<samlp:StatusCode xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" Value="urn:oasis:names:tc:SAML:2.0:status:Success"></samlp:StatusCode>
@@ -8,7 +8,7 @@
 		<saml:Subject>
 			<saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress" NameQualifier="<%=nameQualifier%>"><%=email%></saml:NameID>
 			<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-				<saml:SubjectConfirmationData InResponseTo="<%=spAssertionId%>" NotOnOrAfter="<%=notOnOrAfter%>" Recipient="<%=acsUrl%>"/></saml:SubjectConfirmation>
+				<saml:SubjectConfirmationData <% if(!excludeInResponseTo) { %>InResponseTo="<%=spAssertionId%>"<%}%> NotOnOrAfter="<%=notOnOrAfter%>" Recipient="<%=acsUrl%>"/></saml:SubjectConfirmation>
 		</saml:Subject>
 		<% if (attributes) { %>
 		<saml:AttributeStatement>
