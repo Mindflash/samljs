@@ -1,0 +1,8 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="<%= sp_issuer %>">
+	<SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+		<NameIDFormat>
+			urn:oasis:names:tc:SAML:2.0:nameid-format:emailAddress
+		</NameIDFormat>
+		<AssertionConsumerService index="0" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="<%= sp_assertionConsumerServiceUrl %>"/>
+	</SPSSODescriptor>
+</EntityDescriptor>
