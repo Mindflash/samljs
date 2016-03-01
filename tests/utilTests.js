@@ -171,7 +171,7 @@ test('generateAuthRequestParams tests with no auth context', function (t) {
 
 	var util = require("../lib/util.js");
 
-	var expected = '{"uniqueId":"_af17f10448a781cec884","issueInstant":"2013-08-28T15:33:59.359Z","version":"2.0","protocolBinding":"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST","assertionConsumerServiceUrl":"settings.sp.assertionConsumerServiceUrl","spInitiatedRedirectUrl":"settings.idp.spInitiatedRedirectUrl","issuer":"settings.sp.issuer","nameIdFormat":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified","nameIdAllowCreate":"true","relayState":null}';
+	var expected = '{"uniqueId":"_af17f10448a781cec884","issueInstant":"2013-08-28T15:33:59.359Z","version":"2.0","protocolBinding":"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST","assertionConsumerServiceUrl":"settings.sp.assertionConsumerServiceUrl","spInitiatedRedirectUrl":"settings.idp.spInitiatedRedirectUrl","issuer":"settings.sp.issuer","nameIdFormat":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified","nameIdAllowCreate":"true","relayState":null,"requestedAuthenticationContext":null}';
 
 	var params = util.generateAuthRequestParams({
 		sp: {
