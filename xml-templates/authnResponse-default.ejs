@@ -10,6 +10,13 @@
 			<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
 				<saml:SubjectConfirmationData <% if(!excludeInResponseTo) { %>InResponseTo="<%=spAssertionId%>"<%}%> NotOnOrAfter="<%=notOnOrAfter%>" Recipient="<%=acsUrl%>"/></saml:SubjectConfirmation>
 		</saml:Subject>
+		<% if (conditions) { %>
+		<saml:Conditions NotBefore="<%=conditions.notBefore%>" NotOnOrAfter="<%=conditions.notOnOrAfter%>">
+			<saml:AudienceRestriction>
+				<saml:Audience><%=conditions.audience%></saml:Audience>
+			</saml:AudienceRestriction>
+		</saml:Conditions>
+		<% } %>
 		<% if (attributes) { %>
 		<saml:AttributeStatement>
 			<% for(var i = 0; i < attributes.length; i++) { %>
@@ -18,13 +25,6 @@
 			</saml:Attribute>
 			<% } %>
 		</saml:AttributeStatement>
-		<% } %>
-		<% if (conditions) { %>
-		<saml:Conditions NotBefore="<%=conditions.notBefore%>" NotOnOrAfter="<%=conditions.notOnOrAfter%>">
-			<saml:AudienceRestriction>
-				<saml:Audience><%=conditions.audience%></saml:Audience>
-			</saml:AudienceRestriction>
-		</saml:Conditions>
 		<% } %>
 		<saml:AuthnStatement AuthnInstant="<%=timestamp%>" SessionIndex="<%=sessIndex%>">
 			<saml:AuthnContext>
