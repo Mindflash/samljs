@@ -34,7 +34,7 @@ test('Generate Unique Id tests', function (t) {
 	var ids = [];
 	for (var i = 0; i < 10; i++) {
 		var newId = util.generateUniqueId();
-		t.notOk(_.contains(ids, newId), "Should not generate equal ids");
+		t.notOk(_.includes(ids, newId), "Should not generate equal ids");
 		ids.push(newId);
 	}
 
