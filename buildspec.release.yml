@@ -1,0 +1,30 @@
+# Build instructions:
+#   - DOES NOT run linter BUT IT SHOULD
+#   - DOES NOT run dependency vulnerability scan BUT IT SHOULD
+#   - runs full test suite
+#   - runs build
+#   - Pushes package to private npm repo
+
+version: 0.2
+
+env:
+  parameter-store:
+    NPM_TOKEN: /secrets/ops/us-east-1/build-pipelines/shared/npm_token
+
+phases:
+  install:
+    commands:
+      # install dependencies
+      - npm install
+
+  pre_build:
+    commands:
+      - npm run test
+      # varsion based on github
+      - npm version -no-git-tag-version $CODEBUILD_SOURCE_VERSION
+
+
+  build:
+    commands:
+      - npm publish
+
