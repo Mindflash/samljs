@@ -30,7 +30,7 @@
 	],
 	"main": "./index.js",
 	"dependencies": {
-		"xml-crypto": "0.1.25",
+		"xml-crypto": "0.3.26",
 		"xml2js": "^0.4.13",
 		"xmldom": "0.1.x",
 		"xpath": "*",
